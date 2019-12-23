@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_object_type.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_object_type.title_legend">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_object_type.publish_legend">
+        <source>Publishing</source>
+        <target>Veröffentlichung</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
