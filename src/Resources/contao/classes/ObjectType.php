@@ -25,6 +25,9 @@ class ObjectType extends \Backend
     {
         $arrObjectTypes = \StringUtil::deserialize($varValue);
 
+        // delete previous connections
+        ObjectTypeConnectionModel::deleteByPidAndPtable($dc->activeRecord->id, $dc->table);
+
         if($arrObjectTypes !== null)
         {
             foreach ($arrObjectTypes as $objectTypeId)
