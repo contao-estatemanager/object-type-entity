@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of Oveleon Region Entity.
+ * This file is part of Oveleon Object Type Entity.
  *
  * (c) https://www.oveleon.de/
  */

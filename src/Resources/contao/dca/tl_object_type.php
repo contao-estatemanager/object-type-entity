@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of Oveleon Region Entity.
+ * This file is part of Oveleon Object Type Entity.
  *
  * (c) https://www.oveleon.de/
  */
@@ -172,7 +172,7 @@ class tl_object_type extends \Backend
             $icon = 'invisible.svg';
         }
 
-        if (!$this->User->hasAccess('objectTypes', 'alpty') || ($objRegion = ObjectTypeModel::findById($row['id'])) === null)
+        if (!$this->User->hasAccess('objectTypes', 'alpty') || ($objObjectType = ObjectTypeModel::findById($row['id'])) === null)
         {
             return \Image::getHtml($icon) . ' ';
         }
