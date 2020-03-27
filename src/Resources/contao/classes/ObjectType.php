@@ -32,7 +32,7 @@ class ObjectType extends \Backend
         {
             foreach ($arrObjectTypes as $objectTypeId)
             {
-                $this->saveConnectionRecord($objectTypeId, $dc->activeRecord->id, $dc->table);
+                static::saveConnectionRecord($objectTypeId, $dc->activeRecord->id, $dc->table);
             }
         }
 
@@ -46,7 +46,7 @@ class ObjectType extends \Backend
      * @param $pid
      * @param $ptable
      */
-    public function saveConnectionRecord($oid, $pid, $ptable)
+    public static function saveConnectionRecord($oid, $pid, $ptable)
     {
         $objConnection = new ObjectTypeConnectionModel();
         $objConnection->oid = $oid;
