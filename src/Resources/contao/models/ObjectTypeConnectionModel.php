@@ -2,6 +2,9 @@
 
 namespace ContaoEstateManager\ObjectTypeEntity;
 
+use Contao\Database;
+use Contao\Model;
+
 /**
  * Reads and writes object type connections
  *
@@ -23,7 +26,7 @@ namespace ContaoEstateManager\ObjectTypeEntity;
  *
  * @author Daniele Sciannimanica <https://github.com/doishub>
  */
-class ObjectTypeConnectionModel extends \Model
+class ObjectTypeConnectionModel extends Model
 {
 
     /**
@@ -42,7 +45,7 @@ class ObjectTypeConnectionModel extends \Model
     {
         $strTable = static::$strTable;
 
-        $objDatabase = \Database::getInstance();
+        $objDatabase = Database::getInstance();
         $objDatabase->prepare('DELETE FROM ' . $strTable . ' WHERE pid=' . $pid . ' AND ptable="' . $ptable . '"')->execute();
     }
 }

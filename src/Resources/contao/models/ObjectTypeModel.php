@@ -2,6 +2,8 @@
 
 namespace ContaoEstateManager\ObjectTypeEntity;
 
+use Contao\Model;
+
 /**
  * Reads and writes object types
  *
@@ -31,7 +33,7 @@ namespace ContaoEstateManager\ObjectTypeEntity;
  *
  * @author Daniele Sciannimanica <https://github.com/doishub>
  */
-class ObjectTypeModel extends \Model
+class ObjectTypeModel extends Model
 {
 
     /**
