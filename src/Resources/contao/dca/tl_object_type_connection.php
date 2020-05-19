@@ -76,6 +76,7 @@ $GLOBALS['TL_DCA']['tl_object_type_connection'] = array
 		),
 		'oid' => array
 		(
+            'label'                   => array('Object type ID'),
             'search'                  => true,
             'sql'                     => "int(10) unsigned NOT NULL default 0"
 		),
@@ -87,7 +88,6 @@ $GLOBALS['TL_DCA']['tl_object_type_connection'] = array
 		),
 		'ptable' => array
 		(
-			'exclude'                 => true,
 			'search'                  => true,
 			'sorting'                 => true,
 			'flag'                    => 1,

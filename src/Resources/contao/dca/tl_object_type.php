@@ -31,7 +31,7 @@ $GLOBALS['TL_DCA']['tl_object_type'] = array
             'mode'                    => 2,
             'fields'                  => array('title'),
             'flag'                    => 1,
-            'panelLayout'             => 'sort,search,limit'
+            'panelLayout'             => 'filter;sort,search,limit'
 		),
         'label' => array
         (
@@ -95,11 +95,12 @@ $GLOBALS['TL_DCA']['tl_object_type'] = array
 		),
         'tstamp' => array
         (
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
-            'sorting'                 => true
+            'sorting'                 => true,
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
 		'title' => array
 		(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_object_type']['title'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'sorting'                 => true,
@@ -110,6 +111,7 @@ $GLOBALS['TL_DCA']['tl_object_type'] = array
 		),
         'published' => array
         (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_object_type']['published'],
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'checkbox',
@@ -119,15 +121,13 @@ $GLOBALS['TL_DCA']['tl_object_type'] = array
 	)
 );
 
+
 /**
  * Provide miscellaneous methods that are used by the data configuration array.
  *
  * @author Daniele Sciannimanica <https://github.com/doishub>
  */
-
-use ContaoEstateManager\ObjectTypeEntity\ObjectTypeModel;
-
-class tl_object_type extends \Backend
+class tl_object_type extends Contao\Backend
 {
 	/**
 	 * Import the back end user object
@@ -135,7 +135,7 @@ class tl_object_type extends \Backend
 	public function __construct()
 	{
 		parent::__construct();
-		$this->import('BackendUser', 'User');
+		$this->import('Contao\BackendUser', 'User');
 	}
 
 
@@ -151,11 +151,11 @@ class tl_object_type extends \Backend
      *
      * @return string
      */
-    public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
+    public function toggleIcon(array $row, ?string $href, string $label, string $title, string $icon, string $attributes): string
     {
-        if (\Input::get('tid'))
+        if (Contao\Input::get('tid'))
         {
-            $this->toggleVisibility(\Input::get('tid'), (\Input::get('state') == 1), (@func_get_arg(12) ?: null));
+            $this->toggleVisibility(Contao\Input::get('tid'), (Contao\Input::get('state') == 1), (@func_get_arg(12) ?: null));
             $this->redirect($this->getReferer());
         }
 
@@ -172,12 +172,12 @@ class tl_object_type extends \Backend
             $icon = 'invisible.svg';
         }
 
-        if (!$this->User->hasAccess('objectTypes', 'alpty') || ($objObjectType = ObjectTypeModel::findById($row['id'])) === null)
+        if (!$this->User->hasAccess('objectTypes', 'alpty') || ($objObjectType = ContaoEstateManager\ObjectTypeEntity\ObjectTypeModel::findById($row['id'])) === null)
         {
-            return \Image::getHtml($icon) . ' ';
+            return Contao\Image::getHtml($icon) . ' ';
         }
 
-        return '<a href="' . $this->addToUrl($href) . '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' . \Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"') . '</a> ';
+        return '<a href="' . $this->addToUrl($href) . '" title="' . Contao\StringUtil::specialchars($title) . '"' . $attributes . '>' . Contao\Image::getHtml($icon, $label, 'data-state="' . ($row['published'] ? 1 : 0) . '"') . '</a> ';
     }
 
     /**
@@ -185,15 +185,15 @@ class tl_object_type extends \Backend
      *
      * @param integer              $intId
      * @param boolean              $blnVisible
-     * @param \DataContainer $dc
+     * @param Contao\DataContainer $dc
      *
-     * @throws \CoreBundle\Exception\AccessDeniedException
+     * @throws Contao\CoreBundle\Exception\AccessDeniedException
      */
-    public function toggleVisibility($intId, $blnVisible, \DataContainer $dc=null)
+    public function toggleVisibility(int $intId, bool $blnVisible, Contao\DataContainer $dc=null): void
     {
         // Set the ID and action
-        \Input::setGet('id', $intId);
-        \Input::setGet('act', 'toggle');
+        Contao\Input::setGet('id', $intId);
+        Contao\Input::setGet('act', 'toggle');
 
         if ($dc)
         {
@@ -220,7 +220,7 @@ class tl_object_type extends \Backend
         // Check the field access
         if (!$this->User->hasAccess('tl_object_type::published', 'alexf'))
         {
-            throw new \CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish object type ID ' . $intId . '.');
+            throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish object type ID ' . $intId . '.');
         }
 
         // Set the current record

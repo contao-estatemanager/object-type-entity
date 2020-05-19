@@ -19,12 +19,12 @@ use Contao\Model;
  * @method static ObjectTypeModel|null findOneByTitle($val, array $opt=array())
  * @method static ObjectTypeModel|null findOneByPublished($val, array $opt=array())
  *
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTstamp($val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTitle($val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByPublished($val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findMultipleByIds($var, array $opt=array())
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findBy($col, $val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findAll(array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTstamp($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTitle($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByPublished($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findMultipleByIds($var, array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findBy($col, $val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findAll(array $opt=array())
  *
  * @method static integer countById($id, array $opt=array())
  * @method static integer countByTitle($val, array $opt=array())
