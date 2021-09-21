@@ -93,6 +93,10 @@ $GLOBALS['TL_DCA']['tl_object_type'] = array
 		(
             'sql'                     => "int(10) unsigned NOT NULL auto_increment"
 		),
+		'vid' => array
+		(
+            'sql'                     => "varchar(255) NOT NULL default ''"
+		),
         'tstamp' => array
         (
             'sorting'                 => true,

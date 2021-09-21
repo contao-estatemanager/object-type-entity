@@ -8,6 +8,7 @@ use Contao\Model;
  * Reads and writes object types
  *
  * @property integer $id
+ * @property string  $vid
  * @property integer $tstamp
  * @property string  $title
  * @property boolean $published
@@ -19,6 +20,7 @@ use Contao\Model;
  * @method static ObjectTypeModel|null findOneByTitle($val, array $opt=array())
  * @method static ObjectTypeModel|null findOneByPublished($val, array $opt=array())
  *
+ * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByVid($val, array $opt=array())
  * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTstamp($val, array $opt=array())
  * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByTitle($val, array $opt=array())
  * @method static Model\Collection|ObjectTypeModel[]|ObjectTypeModel|null findByPublished($val, array $opt=array())

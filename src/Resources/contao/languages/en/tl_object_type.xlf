@@ -7,6 +7,19 @@
       <trans-unit id="tl_object_type.publish_legend">
         <source>Publishing</source>
       </trans-unit>
+
+      <trans-unit id="tl_object_type.title.0">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="tl_object_type.title.1">
+        <source>Enter the title of the object type here</source>
+      </trans-unit>
+      <trans-unit id="tl_object_type.published.0">
+        <source>publish</source>
+      </trans-unit>
+      <trans-unit id="tl_object_type.published.1">
+        <source>Specify here whether the object type is published</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

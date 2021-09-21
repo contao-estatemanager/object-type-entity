@@ -9,7 +9,7 @@
  */
 
 // Back end modules
-$GLOBALS['BE_MOD']['system']['objectTypes'] = array
+$GLOBALS['BE_MOD']['content']['objectTypes'] = array
 (
     'tables' => array('tl_object_type', 'tl_object_type_connection')
 );
