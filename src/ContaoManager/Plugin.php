@@ -25,8 +25,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(ObjectTypeEntity::class)
-                ->setLoadAfter([ContaoCoreBundle::class])
-                ->setReplace(['object-type-entity']),
+                        ->setLoadAfter([ContaoCoreBundle::class])
         ];
     }
 }

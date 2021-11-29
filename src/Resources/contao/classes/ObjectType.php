@@ -10,20 +10,24 @@
 
 namespace ContaoEstateManager\ObjectTypeEntity;
 
-class ObjectType extends \Backend
+use Contao\Backend;
+use Contao\DataContainer;
+use Contao\StringUtil;
+
+class ObjectType extends Backend
 {
 
     /**
      * Save connection from save callback
      *
      * @param $varValue
-     * @param \DataContainer $dc
+     * @param DataContainer $dc
      *
      * @return string
      */
-    public function objectTypeConnectionSaveCallback($varValue, \DataContainer $dc)
+    public function objectTypeConnectionSaveCallback($varValue, DataContainer $dc)
     {
-        $arrObjectTypes = \StringUtil::deserialize($varValue);
+        $arrObjectTypes = StringUtil::deserialize($varValue);
 
         // delete previous connections
         ObjectTypeConnectionModel::deleteByPidAndPtable($dc->activeRecord->id, $dc->table);

@@ -2,6 +2,9 @@
 
 namespace ContaoEstateManager\ObjectTypeEntity;
 
+use Contao\Database;
+use Contao\Model;
+
 /**
  * Reads and writes object type connections
  *
@@ -13,9 +16,9 @@ namespace ContaoEstateManager\ObjectTypeEntity;
  * @method static ObjectTypeConnectionModel|null findOneByPid($id, array $opt=array())
  * @method static ObjectTypeConnectionModel|null findOneByPtable($id, array $opt=array())
  *
- * @method static \Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByOid($val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByPid($val, array $opt=array())
- * @method static \Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByPtable($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByOid($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByPid($val, array $opt=array())
+ * @method static Model\Collection|ObjectTypeConnectionModel[]|ObjectTypeConnectionModel|null findByPtable($val, array $opt=array())
  *
  * @method static integer countByOid($id, array $opt=array())
  * @method static integer countByPid($val, array $opt=array())
@@ -23,7 +26,7 @@ namespace ContaoEstateManager\ObjectTypeEntity;
  *
  * @author Daniele Sciannimanica <https://github.com/doishub>
  */
-class ObjectTypeConnectionModel extends \Model
+class ObjectTypeConnectionModel extends Model
 {
 
     /**
@@ -42,7 +45,7 @@ class ObjectTypeConnectionModel extends \Model
     {
         $strTable = static::$strTable;
 
-        $objDatabase = \Database::getInstance();
+        $objDatabase = Database::getInstance();
         $objDatabase->prepare('DELETE FROM ' . $strTable . ' WHERE pid=' . $pid . ' AND ptable="' . $ptable . '"')->execute();
     }
 }

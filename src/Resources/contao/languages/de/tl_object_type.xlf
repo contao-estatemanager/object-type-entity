@@ -9,6 +9,23 @@
         <source>Publishing</source>
         <target>Veröffentlichung</target>
       </trans-unit>
+
+      <trans-unit id="tl_object_type.title.0">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_object_type.title.1">
+        <source>Enter the title of the object type here</source>
+        <target>Geben Sie hier den Titel des Objekttypen an</target>
+      </trans-unit>
+      <trans-unit id="tl_object_type.published.0">
+        <source>publish</source>
+        <target>veröffentlicht</target>
+      </trans-unit>
+      <trans-unit id="tl_object_type.published.1">
+        <source>Specify here whether the object type is published</source>
+        <target>Geben Sie hier an, ob der Objekttyp veröffentlicht ist</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
